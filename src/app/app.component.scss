@@ -1,0 +1,21 @@
+.center-title-button {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 32px;
+}
+.wrapper-button {
+    text-align: center;
+    margin-bottom: 48px;
+}
+.temperatures-legend {
+    text-align: center;
+    margin-bottom: 48px; 
+    font-weight: bold;  
+    > p > .red-legend {
+        color: red;
+    } 
+    > p > .blue-legend {
+        color: blue; 
+    }
+}

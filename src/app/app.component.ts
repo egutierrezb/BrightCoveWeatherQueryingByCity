@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'apps-interview-angular';
+  title: string;
+  constructor(){
+    this.title = 'Weather application'
+  }
 }
+
