@@ -9,7 +9,7 @@ export class WeatherService {
   }
   //Public method responsible for fetching
   //data from metaweather.com/api/location/2367105
-  //(Boston, USA)
+  //(Boston,USA)
   public findAll():Observable<any>{
     return this.http.get('/api/location/2367105/');
   }
