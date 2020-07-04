@@ -1,7 +1,8 @@
 {
-    "/api/location/2367105": {
+    "/api/*": {
         "target": "https://www.metaweather.com",
-        "secure": false,
-        "changeOrigin": "true"
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
     }
 }

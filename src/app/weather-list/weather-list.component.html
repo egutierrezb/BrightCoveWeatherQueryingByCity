@@ -1,30 +1,17 @@
-<div class="temperatures-legend">
-    <p>Temperatures above 25 are marked in <span class="red-legend">red</span></p>
-    <p>Temperatures below 25 are marked in <span class="blue-legend">blue</span></p>
-</div>
-<table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">City</th>
-            <th scope="col">Date</th>
-            <th scope="col">Min Temp</th>
-            <th scope="col">Max Temp</th>
-            <th scope="col">Weather State</th>
-            <th scope="col">Icon</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let climate of climates">
-            <td>{{city}}</td>
-            <td>{{formatDate(climate.applicable_date)}}</td>
-            <td *ngIf="checkTemperature(climate.min_temp); then roundClimateMin else floorClimateMin"></td>
-            <ng-template #roundClimateMin><td [style.color]="roundTemperature(climate.min_temp) > 25 ? 'red' : 'blue'">{{roundTemperature(climate.min_temp)}}</td></ng-template>
-            <ng-template #floorClimateMin><td [style.color]="roundTemperature(climate.min_temp) > 25 ? 'red' : 'blue'">{{floorTemperature(climate.min_temp)}}</td></ng-template>
-            <td *ngIf="checkTemperature(climate.max_temp); then roundClimateMax else floorClimateMax" [style.color]="roundTemperature(climate.max_temp) > 25 ? 'red' : 'blue'"></td>
-            <ng-template #roundClimateMax><td [style.color]="roundTemperature(climate.max_temp) > 25 ? 'red' : 'blue'">{{roundTemperature(climate.max_temp)}}</td></ng-template>
-            <ng-template #floorClimateMax><td [style.color]="roundTemperature(climate.max_temp) > 25 ? 'red' : 'blue'">{{floorTemperature(climate.max_temp)}}</td></ng-template>
-            <td>{{climate.weather_state_name}}</td>
-            <td><img src="https://www.metaweather.com/static/img/weather/png/64/{{climate.weather_state_abbr}}.png"></td>
-        </tr>
-    </tbody>
-</table>
+<form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
+    <div class="form-group">
+        <input
+            class="form-control size-input"
+            type="text"
+            id="weatherLocation"
+            aria-describedby="weatherLocation"
+            placeholder="Please input a Location"
+            formControlName="location" />
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success btn-md">
+          Search for the weather
+        </button>
+    </div>
+</form>
+

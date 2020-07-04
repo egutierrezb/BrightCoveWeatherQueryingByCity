@@ -5,17 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { WeatherService } from './service/weather.service';
+import { WeatherCityComponent } from './weather-city/weather-city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherListComponent
+    WeatherListComponent,
+    WeatherCityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
